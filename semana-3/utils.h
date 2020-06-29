@@ -1,4 +1,4 @@
-#define TAMANHO 1000
+#define TAMANHO 10000
 
 void inicializarVetor(int vetor[]);
 

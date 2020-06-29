@@ -1,18 +1,18 @@
 #include <iostream>
-#include "quick-sort.h"
+#include "./merge-sort.h"
 #include "../utils.h"
 
 using namespace std;
 
 int main() {
     
-    int vetor[TAMANHO], aux;
+    int *vetor = new int [TAMANHO];
     long nroParticoes = 0, nroComparacoes = 0;
     inicializarVetor(vetor); // preenche o vetor com numeros aleatorios não repetidos;
     cout << "\nVetor gerado: ";
     exibirVetor(vetor);
 
-    quicksort(vetor, 0, TAMANHO-1, &nroParticoes, &nroComparacoes);
+    mergesort(vetor, 0, TAMANHO-1, &nroParticoes, &nroComparacoes);
 
     cout << "Vetor ordenado: ";
     exibirVetor(vetor);

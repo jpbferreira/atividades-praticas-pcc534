@@ -5,26 +5,26 @@ using namespace std;
 
 void inicializarVetor(int vetor[]) {
 
-    for (int i = 0; i < TAMANHO; i++) {
-        vetor[i] = gerarNumeroAleatorioValido(vetor, i);
+    int i = 0, elemento;
+    while(i < TAMANHO) {
+        elemento = gerarNumeroAleatorioValido(vetor, i);
+        if (elemento != -1) {
+            vetor[i] = elemento;
+            i += 1;
+        }
     }
 }
 
 int gerarNumeroAleatorioValido(int vetor[], int tamanhoAtual) {
 
-    bool repetido = false;
     int aux = 0;
     int elemento = rand() % TAMANHO + 1;
-    while(!repetido && aux < tamanhoAtual) {
-        if(vetor[aux] == elemento) repetido = true;
+    while(aux < tamanhoAtual) {
+        if(vetor[aux] == elemento) return -1;
         aux++;
     }
-
-    if (repetido) {
-        gerarNumeroAleatorioValido(vetor, tamanhoAtual);
-    } else {
-        return elemento;
-    }
+    
+    return elemento;
 }
 
 void exibirVetor(int vetor[]) {
